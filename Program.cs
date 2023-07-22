@@ -1,113 +1,93 @@
-﻿// Задача 10: Напишите программу, которая 
-//принимает на вход трёхзначное число
-//и на выходе показывает вторую цифру этого числа.
-//456 -> 5
-//782 -> 8
-//918 -> 1
+﻿//Задайте массив заполненный случайными 
+//положительными трёхзначными числами.
+//Напишите программу, которая покажет 
+//количество чётных чисел в массиве.
+//[345, 897, 568, 234] -> 2
 
-//Console.Clear ();
-//int a1= new Random().Next(100,1000);
-//Console.WriteLine(a1);
-//int x1=a1/10;
-//int x11=x1%10;
-//Console.WriteLine(x11);
+//void InputArray (int[] array)
+//{
+    //for (int i=0; i<array.Length; i++)
+       //array [i]= new Random().Next(99,1000);
+//}
+//int ReleaseArray (int[] array)
 
-//Задача 13: Напишите программу, которая выводит
-// третью цифру заданного числа
-// или сообщает, что третьей цифры нет.
-//645 -> 5
-//78 -> третьей цифры нет
-//32679 -> 6
-
-
-
-  
-//Console.WriteLine("Введите число:");
-//int n = Convert.ToInt32(Console.ReadLine());
-
-// if (n<100)
-//  Console.WriteLine("нет третьего числа");
-// else if (n<1000)
-//   n=n%10;
-//
-// else if (n<10000)
-//   n=n%100/10;
-// 
-//else 
-// n=n%1000/100;  
-//Console.WriteLine(n);   
-//Задача 15: Напишите программу,
-// которая принимает на вход цифру,
-//обозначающую день недели, 
-//и проверяет, является ли этот день выходным.
-//6 -> да
-//7 -> да
-//1 -> нет
-
-//Console.Write("Введите цифру, обозначающую день недели (от 1 до 7): ");
-//int a = Convert.ToInt32(Console.ReadLine());
-
-//if (a == 1 || a==2 || a==3 || a==4 || a==5 )
-//Console.WriteLine("no");
-//else if (a == 6 || a == 7)
-//Console.WriteLine("yes");
-//else
-//Console.WriteLine("Неверное число");
-
-//Задача 19
-//Напишите программу, которая принимает 
-//на вход пятизначное число и проверяет, 
-//является ли оно палиндромом.
-//14212 -> нет
-//12821 -> да
-//23432 -> да  
-
-Console.WriteLine("Введите пятизначное число: ");
-int a = Convert.ToInt32(Console.ReadLine());
-int n1 = a/10000;
-int n2 = a%10;
-int n3 = a/1000%10;
-int n4 = a%100/10;
-if (n1==n2 && n3==n4)
- {
- Console.WriteLine("да");
- }
-else
- {
-  Console.WriteLine("нет");
- }
-
-//Задача 21
-//Напишите программу, которая принимает 
-//на вход координаты двух точек 
-//и находит расстояние между ними в 3D пространстве.
-//A (3,6,8); B (2,1,-7), -> 15.84
-//A (7,-5, 0); B (1,-1,9) -> 11.53
-
-Console.Write("x1=");
-int x1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("y1=");
-int y1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("z1=");
-int z1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("x2=");
-int x2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("y2=");
-int y2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("z2=");
-int z2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(Math.Round(Math.Sqrt(Math.Pow (x1-x2,2)+Math.Pow (y1-y2,2)+Math.Pow (z1-z2,2)),2));
+//{
+    //int count=0;
+     //for (int i=0; i<array.Length; i++)
+        //if (array [i]%2==0)
+        //count++;
+    //return count;
+//}    
 
 
-//Задача 23
-//Напишите программу, которая принимает
-// на вход число (N) и выдаёт таблицу кубов
-// чисел от 1 до N.
-//3 -> 1, 8, 27
-//5 -> 1, 8, 27, 64, 125
+//Console.Write("ВВедите кол-во элементов в массиве:");
+//int n=Convert.ToInt32(Console.ReadLine());
+//int[] array = new int [n];
+//InputArray (array);
+//Console.WriteLine($"[{string.Join (", ", array)}]");
+//Console.WriteLine(ReleaseArray(array));
 
-Console.Write("N= ");
-int a3 = Convert.ToInt32(Console.ReadLine());
-for ( int i = 1; i <= a3; i++)
- Console.WriteLine($"{Math.Pow(i,3)}");
 
+
+//Задача 36: Задайте одномерный массив,
+// заполненный случайными числами. 
+//Найдите сумму элементов, стоящих 
+//на нечётных позициях.
+//[3, 7, 23, 12] -> 19
+//[-4, -6, 89, 6] -> 0
+
+void InputArrayy (int[] array2)
+{
+    for (int i=0; i<array2.Length; i++)
+    array2 [i]= new Random().Next(0,10);
+}
+void ReleaseArrayy (int[] array2)
+
+{   int sum =0; 
+    for (int i=0; i<array2.Length; i++)
+            if (i%2==0) 
+          sum += array2[i];         
+    Console.Write(sum); 
+}  
+
+Console.Write("ВВедите кол-во элементов в массиве:");
+int n2=Convert.ToInt32(Console.ReadLine());
+int[] array2 = new int [n2];
+InputArrayy (array2);
+Console.WriteLine($"[{string.Join (", ", array2)}]");
+ReleaseArrayy(array2);
+
+
+
+
+//Задача 38: Задайте массив вещественных чисел.
+// Найдите разницу между максимальным 
+//и минимальным элементов массива.
+//[3.22, 4.2, 1.15, 77.15, 65.2] =>
+//77.15 - 1.15 = 76
+
+void InputArrayyy (int[] array2)
+{
+    for (int i=0; i<array2.Length; i++)
+    array2 [i]= new Random().Next(0,100);
+}
+void ReleaseArrayyy (int[] array2)
+
+{   int min =100; 
+    int max=0;
+    int res =0;
+    for (int i=0; i<array2.Length; i++)
+            if (array2[i]>max) 
+          max = array2[i];
+            else if (array2[i]<min)   
+          min = array2[i]; 
+    res=max-min;      
+    Console.Write(res); 
+}  
+
+Console.WriteLine("ВВедите кол-во элементов в массиве:");
+int n3=Convert.ToInt32(Console.ReadLine());
+int[] array3 = new int [n3];
+InputArrayyy (array3);
+Console.WriteLine($"[{string.Join (", ", array3)}]");
+ReleaseArrayyy(array3);
