@@ -4,28 +4,28 @@
 //количество чётных чисел в массиве.
 //[345, 897, 568, 234] -> 2
 
-//void InputArray (int[] array)
-//{
-    //for (int i=0; i<array.Length; i++)
-       //array [i]= new Random().Next(99,1000);
-//}
-//int ReleaseArray (int[] array)
+void InputArray (int[] array)
+{
+    for (int i=0; i<array.Length; i++)
+       array [i]= new Random().Next(99,1000);
+}
+int ReleaseArray (int[] array)
 
-//{
-    //int count=0;
-     //for (int i=0; i<array.Length; i++)
-        //if (array [i]%2==0)
-        //count++;
-    //return count;
-//}    
+{
+    int count=0;
+    for (int i=0; i<array.Length; i++)
+        if (array [i]%2==0)
+        count++;
+    return count;
+}    
 
 
-//Console.Write("ВВедите кол-во элементов в массиве:");
-//int n=Convert.ToInt32(Console.ReadLine());
-//int[] array = new int [n];
-//InputArray (array);
-//Console.WriteLine($"[{string.Join (", ", array)}]");
-//Console.WriteLine(ReleaseArray(array));
+Console.WriteLine("ВВедите кол-во элементов в массиве:");
+int n=Convert.ToInt32(Console.ReadLine());
+int[] array = new int [n];
+InputArray (array);
+Console.WriteLine($"[{string.Join (", ", array)}]");
+Console.WriteLine(ReleaseArray(array));
 
 
 
@@ -50,7 +50,7 @@ void ReleaseArrayy (int[] array2)
     Console.Write(sum); 
 }  
 
-Console.Write("ВВедите кол-во элементов в массиве:");
+Console.WriteLine("ВВедите кол-во элементов в массиве:");
 int n2=Convert.ToInt32(Console.ReadLine());
 int[] array2 = new int [n2];
 InputArrayy (array2);
