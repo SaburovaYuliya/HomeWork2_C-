@@ -1,93 +1,141 @@
-﻿//Задайте массив заполненный случайными 
-//положительными трёхзначными числами.
-//Напишите программу, которая покажет 
-//количество чётных чисел в массиве.
-//[345, 897, 568, 234] -> 2
+﻿//Задача 47. Задайте двумерный массив 
+//размером m×n, заполненный случайными 
+//вещественными числами.
 
-void InputArray (int[] array)
+//m = 3, n = 4.
+//0,5 7 -2 -0,2
+//1 -3,3 8 -9,9
+//8 7,8 -7,1 9
+
+
+void InputArray(double[,] matrix)
 {
-    for (int i=0; i<array.Length; i++)
-       array [i]= new Random().Next(99,1000);
+for (int i = 0; i < matrix.GetLength(0); i++)
+{
+for (int j = 0; j < matrix.GetLength(1); j++)
+{
+   matrix[i, j] = Math.Round(new Random().NextDouble()*10, 1);
+Console.Write($"{matrix[i, j]} \t");
 }
-int ReleaseArray (int[] array)
-
-{
-    int count=0;
-    for (int i=0; i<array.Length; i++)
-        if (array [i]%2==0)
-        count++;
-    return count;
-}    
-
-
-Console.WriteLine("ВВедите кол-во элементов в массиве:");
-int n=Convert.ToInt32(Console.ReadLine());
-int[] array = new int [n];
-InputArray (array);
-Console.WriteLine($"[{string.Join (", ", array)}]");
-Console.WriteLine(ReleaseArray(array));
-
-
-
-//Задача 36: Задайте одномерный массив,
-// заполненный случайными числами. 
-//Найдите сумму элементов, стоящих 
-//на нечётных позициях.
-//[3, 7, 23, 12] -> 19
-//[-4, -6, 89, 6] -> 0
-
-void InputArrayy (int[] array2)
-{
-    for (int i=0; i<array2.Length; i++)
-    array2 [i]= new Random().Next(0,10);
+Console.WriteLine();
 }
-void ReleaseArrayy (int[] array2)
 
-{   int sum =0; 
-    for (int i=0; i<array2.Length; i++)
-            if (i%2==0) 
-          sum += array2[i];         
-    Console.Write(sum); 
-}  
-
-Console.WriteLine("ВВедите кол-во элементов в массиве:");
-int n2=Convert.ToInt32(Console.ReadLine());
-int[] array2 = new int [n2];
-InputArrayy (array2);
-Console.WriteLine($"[{string.Join (", ", array2)}]");
-ReleaseArrayy(array2);
-
-
-
-
-//Задача 38: Задайте массив вещественных чисел.
-// Найдите разницу между максимальным 
-//и минимальным элементов массива.
-//[3.22, 4.2, 1.15, 77.15, 65.2] =>
-//77.15 - 1.15 = 76
-
-void InputArrayyy (int[] array2)
-{
-    for (int i=0; i<array2.Length; i++)
-    array2 [i]= new Random().Next(0,100);
 }
-void ReleaseArrayyy (int[] array2)
 
-{   int min =100; 
-    int max=0;
-    int res =0;
-    for (int i=0; i<array2.Length; i++)
-            if (array2[i]>max) 
-          max = array2[i];
-            else if (array2[i]<min)   
-          min = array2[i]; 
-    res=max-min;      
-    Console.Write(res); 
-}  
 
-Console.WriteLine("ВВедите кол-во элементов в массиве:");
-int n3=Convert.ToInt32(Console.ReadLine());
-int[] array3 = new int [n3];
-InputArrayyy (array3);
-Console.WriteLine($"[{string.Join (", ", array3)}]");
-ReleaseArrayyy(array3);
+
+Console.Write("Введите размеры матрицы для задачи 47: "); 
+int[] size = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
+double[,] matrix = new double[size[0], size[1]];
+InputArray(matrix);
+
+
+
+
+
+//Задача 50. Напишите программу, которая
+// на вход принимает позиции элемента 
+//в двумерном массиве, и возвращает значение 
+//этого элемента или же указание, 
+//что такого элемента нет.
+
+//Например, задан массив:
+//1 4 7 2
+//5 9 2 3
+//8 4 2 4
+//17 -> такого числа в массиве нет
+
+
+
+void InputMatrix(int[,] matrix)
+{
+for (int i = 0; i < matrix.GetLength(0); i++)
+{
+for (int j = 0; j < matrix.GetLength(1); j++)
+{
+matrix[i, j] = new Random().Next(0, 10);
+Console.Write($"{matrix[i, j]} \t");
+}
+Console.WriteLine();
+}
+
+}
+
+void ReleaseMatrix(int[,] matrix)
+{
+  Console.Write("Введите позицию элемента: "); 
+  int[] size = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
+  {
+  for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+      for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+        if (i == size[0] && j==size[1])
+        Console.WriteLine($"{matrix[i,j]}");
+         //else if (i > size[0] || j>size[1])
+         //Console.WriteLine("такого элемента нет");
+         }
+    }
+  }
+}
+
+
+
+
+Console.Write("Введите размеры матрицы для задачи 50: "); 
+int[] size2 = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
+int[,] matrix2 = new int[size2[0], size2[1]];
+InputMatrix(matrix2); 
+Console.WriteLine("\n");
+ReleaseMatrix(matrix2);
+
+
+
+//Задача 52. Задайте двумерный массив из целых чисел. 
+//Найдите среднее арифметическое элементов в каждом столбце.
+
+//Например, задан массив:
+//1 4 7 2
+//5 9 2 3
+//8 4 2 4
+//Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6;
+//3.
+
+
+void InputArray3(int[,] matrix)
+{
+for (int i = 0; i < matrix.GetLength(0); i++)
+{
+for (int j = 0; j < matrix.GetLength(1); j++)
+{
+matrix[i, j] = new Random().Next(0, 10);
+Console.Write($"{matrix[i, j]} \t");
+}
+Console.WriteLine();
+}
+}
+
+void ReleaseMatrix3(int[,] matrix)
+{
+  double sum = 0;
+  double avg=0;
+  for (int j = 0; j < matrix.GetLength(1); j++)
+  {
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+    if (j==0)
+      sum += matrix[i, j];
+      avg=sum/matrix.GetLength(0);
+    }
+    Console.WriteLine(Math.Round(avg, 1));
+  } 
+  }
+
+
+Console.Write("Введите размеры матрицы для задачи 52: ");
+int[] size3 = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
+int[,] matrix3 = new int[size3[0], size3[1]];
+InputArray3(matrix3);
+Console.Write("\n");
+ReleaseMatrix3(matrix3);
+
